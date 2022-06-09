@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  php-apache-environment:
+    container_name: tms_container
+    #image: php:8.1-apache
+    build: .
+    volumes:
+      - ./tms:/var/www/html/
+      - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+    ports:
+      - 8000:80
